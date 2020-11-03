@@ -138,7 +138,8 @@ def getEmojiString(pokemon_name, version):
 
 def createDenLists():
     for version in ("sword", "shield"):
-        with open(f"{version}DensDatamined.txt", "r") as f:
+        textFile = os.path.join("data", f"{version}DensDatamined.txt")
+        with open(textFile, "r") as f:
             denFile = f.read()
 
         denList = denFile.split("\n\t\n\n")
