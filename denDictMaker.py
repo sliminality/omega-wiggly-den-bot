@@ -1,5 +1,5 @@
+import os
 import re
-
 
 def getEmojiPre(pokemon_name, version):
     alternateFormPokemon = {
@@ -125,7 +125,9 @@ def getEmojiString(pokemon_name, version):
     regexName = getEmojiPre(pokemon_name, version)
     emoteRegex = re.compile(fr"<a?:s_{regexName}:\d*>")
 
-    with open("Emoji-Retrieval\\emoji_names.txt", "r") as f:
+    emojiNames = os.path.join("Emoji-Retrieval", "emoji_names.txt")
+
+    with open(emojiNames, "r") as f:
         emojiNamesText = f.read()
 
     match = re.search(emoteRegex, emojiNamesText)
